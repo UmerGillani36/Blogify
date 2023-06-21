@@ -1,5 +1,5 @@
 
-export default function Home() {
+export default function AllPostPage() {
   return (
     <>
       Home Page
