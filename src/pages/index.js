@@ -1,37 +1,22 @@
 import FeaturedPosts from '../../components/HomePage/FeaturedPosts';
 import Hero from '../../components/HomePage/Hero';
+import { getFeaturedPosts } from '../../lib/post-util';
 
-const DUMMY_POSTS = [
-  {
-    title: 'Getting Started with NextJs',
-    slug: 'getting-started-with-nextjs',
-    image: 'getting-started-nextjs.png',
-    date: '2023-02-10',
-    excerpt:
-      "The React Framework for the Web Used by some of the world's largest companies, Next. enables you to create full-stack Web applications by extending the latest React features, and integrating powerful Rust-based JavaScript tooling for the fastest builds.",
-  },
-  {
-    title: 'Getting Started with NextJs',
-    slug: 'getting-started-with-nextjs2',
-    image: 'getting-started-nextjs.png',
-    date: '2023-02-10',
-    excerpt:
-      "The React Framework for the Web Used by some of the world's largest companies, Next. enables you to create full-stack Web applications by extending the latest React features, and integrating powerful Rust-based JavaScript tooling for the fastest builds.",
-  },
-  {
-    title: 'Getting Started with NextJs',
-    slug: 'getting-started-with-nextjs3',
-    image: 'getting-started-nextjs.png',
-    date: '2023-02-10',
-    excerpt:
-      "The React Framework for the Web Used by some of the world's largest companies, Next. enables you to create full-stack Web applications by extending the latest React features, and integrating powerful Rust-based JavaScript tooling for the fastest builds.",
-  },
-];
-export default function Home() {
+export default function Home(props) {
   return (
     <>
       <Hero />
-      <FeaturedPosts posts={DUMMY_POSTS} />
+      <FeaturedPosts posts={props.posts} />
     </>
   );
+}
+
+export function getStaticProps() {
+  const featuredPosts = getFeaturedPosts();
+  return {
+    props: {
+      posts: featuredPosts,
+    },
+    revalidate: 60,
+  };
 }
