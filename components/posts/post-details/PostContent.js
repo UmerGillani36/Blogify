@@ -3,8 +3,7 @@ import classes from './PostContent.module.css';
 import ReactMarkdown from 'react-markdown';
 import Image from 'next/image';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
-import { dark } from 'react-syntax-highlighter/dist/esm/styles/prism';
-// import docco from 'react-syntax-highlighter/dist/esm/styles/hljs/docco';
+// import { dark } from 'react-syntax-highlighter/dist/esm/styles/prism';
 
 const PostContent = (props) => {
   const { post } = props;
@@ -45,7 +44,7 @@ const PostContent = (props) => {
       const language = className.split('-')[1]; // className is something like language-js => We need the "js" part here
       return (
         <SyntaxHighlighter
-          style={dark}
+          // style={dark}
           language={language}
           children={children}
         ></SyntaxHighlighter>
