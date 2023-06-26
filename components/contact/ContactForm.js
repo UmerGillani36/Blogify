@@ -14,6 +14,13 @@ const ContactForm = () => {
             <input type="text" id="name" required />
           </div>
         </div>
+        <div className={classes.control}>
+          <label htmlFor="message">Your Message</label>
+          <textarea id="message" rows={5} />
+        </div>
+        <div className={classes.actions}>
+          <button>Send Message</button>
+        </div>
       </form>
     </section>
   );
